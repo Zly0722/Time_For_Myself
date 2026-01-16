@@ -17,17 +17,22 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            /* 科学主题背景 - 可以替换为你自己的图片 */
+            background-image:
+                linear-gradient(135deg, rgba(102, 126, 234, 0.85) 0%, rgba(118, 75, 162, 0.85) 100%),
+                url('https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=1920&q=80');
+            background-size: cover;
+            background-position: center;
             background-attachment: fixed;
         }
 
         .container {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(255, 255, 255, 0.4);
             padding: 50px;
             border-radius: 30px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
             text-align: center;
             max-width: 550px;
             width: 90%;
@@ -37,7 +42,7 @@
             color: white;
             font-size: 36px;
             margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
             font-weight: 600;
         }
 
@@ -52,6 +57,8 @@
             animation: gradientMove 4s ease-in-out infinite;
             margin-bottom: 25px;
             letter-spacing: 1px;
+            text-shadow: none;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
         }
 
         @keyframes gradientMove {
@@ -88,15 +95,16 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             font-weight: 500;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
         }
 
         .time-input-group input {
             padding: 12px;
             font-size: 20px;
-            border: 2px solid rgba(255, 255, 255, 0.5);
+            border: 2px solid rgba(255, 255, 255, 0.6);
             border-radius: 12px;
             width: 80px;
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.95);
             transition: all 0.3s ease;
             outline: none;
             text-align: center;
@@ -107,7 +115,7 @@
             border-color: #ffd700;
             background: white;
             transform: scale(1.05);
-            box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
         }
 
         .button-group {
@@ -123,16 +131,16 @@
             border: none;
             border-radius: 15px;
             cursor: pointer;
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.95);
             color: #667eea;
             font-weight: 600;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
 
         button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
             background: white;
         }
 
@@ -141,18 +149,19 @@
         }
 
         .timer-display {
-            background: rgba(255, 255, 255, 0.25);
+            background: rgba(255, 255, 255, 0.3);
             border-radius: 20px;
             padding: 40px 20px;
             margin: 30px 0;
-            border: 2px solid rgba(255, 255, 255, 0.4);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(5px);
         }
 
         #timer {
             font-size: 72px;
             color: white;
             font-weight: 700;
-            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
             letter-spacing: 5px;
             animation: pulse 1s ease-in-out infinite;
         }
@@ -174,11 +183,12 @@
         }
 
         .time-label {
-            color: rgba(255, 255, 255, 0.9);
+            color: rgba(255, 255, 255, 0.95);
             font-size: 14px;
             text-transform: uppercase;
             letter-spacing: 2px;
             font-weight: 500;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
         }
 
         #message {
@@ -186,7 +196,7 @@
             font-size: 32px;
             font-weight: bold;
             color: #fff;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
             animation: fadeInScale 0.5s ease-in-out;
         }
 
@@ -207,7 +217,7 @@
 
         .timer-finished {
             animation: blink 0.5s ease-in-out infinite !important;
-            color: #ff4444 !important;
+            color: #ffff00 !important;
         }
 
         @keyframes blink {
@@ -225,6 +235,7 @@
             font-weight: bold;
             align-self: center;
             margin-top: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
         }
     </style>
 </head>
@@ -278,7 +289,6 @@
             const minutes = parseInt(document.getElementById('minutesInput').value) || 0;
             const seconds = parseInt(document.getElementById('secondsInput').value) || 0;
 
-            // Calculate total seconds
             const totalSeconds = (hours * 3600) + (minutes * 60) + seconds;
 
             if (totalSeconds <= 0) {
@@ -324,7 +334,6 @@
             document.getElementById('secondsInput').value = '0';
         }
 
-        // Auto-correct input values
         document.getElementById('hoursInput').addEventListener('change', function() {
             if (this.value < 0) this.value = 0;
             if (this.value > 23) this.value = 23;
