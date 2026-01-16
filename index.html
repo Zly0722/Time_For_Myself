@@ -17,8 +17,8 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            /* 科学主题背景 - 可以替换为你自己的图片 */
-            background-image:
+            padding: 10px;
+            background-image: 
                 linear-gradient(135deg, rgba(102, 126, 234, 0.85) 0%, rgba(118, 75, 162, 0.85) 100%),
                 url('https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=1920&q=80');
             background-size: cover;
@@ -30,24 +30,24 @@
             background: rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(15px);
             border: 2px solid rgba(255, 255, 255, 0.4);
-            padding: 50px;
+            padding: 30px 20px;
             border-radius: 30px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
             text-align: center;
-            max-width: 550px;
-            width: 90%;
+            max-width: 500px;
+            width: 100%;
         }
 
         h1 {
             color: white;
-            font-size: 36px;
+            font-size: clamp(24px, 6vw, 36px);
             margin-bottom: 10px;
             text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
             font-weight: 600;
         }
 
         .creators {
-            font-size: 16px;
+            font-size: clamp(12px, 3vw, 16px);
             font-weight: 600;
             background: linear-gradient(90deg, #ffd700, #ff6b9d, #c471ed, #12c2e9, #ffd700);
             background-size: 300% 300%;
@@ -55,9 +55,8 @@
             background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: gradientMove 4s ease-in-out infinite;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             letter-spacing: 1px;
-            text-shadow: none;
             filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
         }
 
@@ -71,15 +70,16 @@
         }
 
         .input-section {
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
         .time-inputs {
             display: flex;
             justify-content: center;
-            gap: 15px;
+            gap: 10px;
             flex-wrap: wrap;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
+            align-items: center;
         }
 
         .time-input-group {
@@ -90,7 +90,7 @@
 
         .time-input-group label {
             color: white;
-            font-size: 12px;
+            font-size: clamp(10px, 2.5vw, 12px);
             margin-bottom: 5px;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -99,11 +99,11 @@
         }
 
         .time-input-group input {
-            padding: 12px;
-            font-size: 20px;
+            padding: 10px 8px;
+            font-size: clamp(16px, 4vw, 20px);
             border: 2px solid rgba(255, 255, 255, 0.6);
             border-radius: 12px;
-            width: 80px;
+            width: clamp(60px, 15vw, 80px);
             background: rgba(255, 255, 255, 0.95);
             transition: all 0.3s ease;
             outline: none;
@@ -120,14 +120,15 @@
 
         .button-group {
             display: flex;
-            gap: 15px;
+            gap: 10px;
             justify-content: center;
-            margin-top: 20px;
+            margin-top: 15px;
+            flex-wrap: wrap;
         }
 
         button {
-            padding: 12px 30px;
-            font-size: 16px;
+            padding: 10px 25px;
+            font-size: clamp(14px, 3.5vw, 16px);
             border: none;
             border-radius: 15px;
             cursor: pointer;
@@ -151,19 +152,20 @@
         .timer-display {
             background: rgba(255, 255, 255, 0.3);
             border-radius: 20px;
-            padding: 40px 20px;
-            margin: 30px 0;
+            padding: 30px 15px;
+            margin: 25px 0;
             border: 2px solid rgba(255, 255, 255, 0.5);
             backdrop-filter: blur(5px);
         }
 
         #timer {
-            font-size: 72px;
+            font-size: clamp(40px, 12vw, 72px);
             color: white;
             font-weight: 700;
             text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
-            letter-spacing: 5px;
+            letter-spacing: clamp(2px, 1vw, 5px);
             animation: pulse 1s ease-in-out infinite;
+            word-break: keep-all;
         }
 
         @keyframes pulse {
@@ -178,22 +180,23 @@
         .time-labels {
             display: flex;
             justify-content: center;
-            gap: 50px;
+            gap: clamp(20px, 10vw, 50px);
             margin-top: 10px;
+            flex-wrap: wrap;
         }
 
         .time-label {
             color: rgba(255, 255, 255, 0.95);
-            font-size: 14px;
+            font-size: clamp(10px, 2.5vw, 14px);
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             font-weight: 500;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
         }
 
         #message {
-            margin-top: 20px;
-            font-size: 32px;
+            margin-top: 15px;
+            font-size: clamp(20px, 6vw, 32px);
             font-weight: bold;
             color: #fff;
             text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
@@ -231,11 +234,27 @@
 
         .separator {
             color: white;
-            font-size: 20px;
+            font-size: clamp(16px, 4vw, 20px);
             font-weight: bold;
             align-self: center;
             margin-top: 20px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+        }
+
+        /* 小屏幕优化 */
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px 15px;
+            }
+            
+            .time-inputs {
+                gap: 8px;
+            }
+            
+            .timer-display {
+                padding: 20px 10px;
+                margin: 20px 0;
+            }
         }
     </style>
 </head>
@@ -243,7 +262,7 @@
     <div class="container">
         <h1>⏱️ Countdown Timer</h1>
         <div class="creators">Created by Xiang Zhang & Xueyanliu</div>
-
+        
         <div class="input-section">
             <div class="time-inputs">
                 <div class="time-input-group">
@@ -262,7 +281,7 @@
                 </div>
             </div>
         </div>
-
+        
         <div class="button-group">
             <button onclick="startTimer()">▶ Start</button>
             <button onclick="resetTimer()">⟳ Reset</button>
@@ -297,7 +316,7 @@
             }
 
             if (intervalId) clearInterval(intervalId);
-
+            
             remainingTime = totalSeconds;
             document.getElementById('message').textContent = '';
             document.getElementById('timer').classList.add('timer-running');
@@ -308,7 +327,7 @@
                 const mins = Math.floor((remainingTime % 3600) / 60);
                 const secs = remainingTime % 60;
 
-                document.getElementById('timer').textContent =
+                document.getElementById('timer').textContent = 
                     `${String(hrs).padStart(2, '0')}:${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
 
                 if (remainingTime <= 0) {
